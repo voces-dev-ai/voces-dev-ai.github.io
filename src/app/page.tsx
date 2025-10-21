@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <Box>
       <Box sx={{ py:8, textAlign:'center' }}>
-        <Typography variant="h3" fontWeight={700}>Voces CNIA</Typography>
+        <Typography variant="h3" fontWeight={700}>Voces CENIA</Typography>
         <Typography sx={{ mt:2, opacity:.9, fontWeight:500, fontSize: { xs: '1rem', md: '1.25rem' }}}>
           Traducción, ASR, TTS y herramientas abiertas para lenguas indigenas en riesgo.
         </Typography>
@@ -40,7 +40,7 @@ export default function Home() {
 
       <>
         <SplitCardCM
-          title="¿Qué es Voces CNIA?"
+          title="¿Qué es Voces CENIA?"
           body="Núcleo técnico para preservación lingüística con IA aplicada. Unimos ASR, traducción y TTS con pipelines reproducibles, datasets curados y servicios listos para producción."
           ctaText="Ver proyectos"
           ctaHref="#proyectos"
