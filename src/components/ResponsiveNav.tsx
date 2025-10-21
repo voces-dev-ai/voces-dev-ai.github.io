@@ -1,11 +1,20 @@
 'use client';
-import Link from 'next/link';
 import Image from 'next/image';
+import NextLink, { LinkProps as NextLinkProps } from 'next/link';
+import { forwardRef, useState, useEffect } from 'react';
 import { AppBar, Box, Toolbar, IconButton, Button, Drawer, List, ListItemButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useState, useEffect } from 'react';
 
-const items = [
+type NavItem = { label: string; href: string };
+
+// Wrapper tipado para MUI `component`
+type NextMuiLinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & NextLinkProps;
+const NextMuiLink = forwardRef<HTMLAnchorElement, NextMuiLinkProps>(function NextMuiLink(props, ref) {
+  const { href, ...other } = props;
+  return <NextLink ref={ref} href={href} {...other} />;
+});
+
+const items: NavItem[] = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Proyectos', href: '#proyectos' },
   { label: 'Equipo', href: '#equipo' },
@@ -28,11 +37,11 @@ export default function ResponsiveNav() {
       sx={{ borderBottom: 1, borderColor: 'divider', bgcolor: 'background.paper', color: '#000' }}>
       <Toolbar sx={{ gap: 2 }}>
         {/* Logo */}
-        <Link href="/" aria-label="Voces CNIA">
+        <NextLink href="/" aria-label="Voces CNIA">
           <Box sx={{ position:'relative', width:{ xs:120, md:160 }, height:50 }}>
             <Image src="/logo_peque.svg" alt="Voces CNIA" fill style={{ objectFit:'contain' }} />
           </Box>
-        </Link>
+        </NextLink>
 
         <Box sx={{ flexGrow: 1 }} />
 
@@ -42,7 +51,7 @@ export default function ResponsiveNav() {
             <Button
               key={it.href}
               href={it.href}
-              component={Link as any}
+              component={NextMuiLink}
               sx={{
                 color: '#000',
                 fontWeight: 700,
@@ -79,7 +88,7 @@ export default function ResponsiveNav() {
             {items.map((it) => (
               <ListItemButton
                 key={it.href}
-                component={Link as any}
+                component={NextMuiLink}
                 href={it.href}
                 onClick={() => setOpen(false)}
                 sx={{ borderRadius: 2, mb: 1, fontWeight: 700 }}
@@ -92,6 +101,7 @@ export default function ResponsiveNav() {
             fullWidth
             variant="contained"
             href="#contacto"
+            component={NextMuiLink}
             onClick={() => setOpen(false)}
             sx={{ mt: 1, borderRadius: 2, textTransform: 'none', fontWeight: 700 }}
           >
