@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { ThemeProvider, CssBaseline, Container } from '@mui/material';
 import { theme } from './theme';
-import NavBar from './ui/NavBar';
+import ResponsiveNav from '@/components/ResponsiveNav';
 
-export const metadata: Metadata = { title: 'Proyecto', description: 'Sitio' };
+export const metadata: Metadata = { title: 'Voces-CNIA', description: 'Traducción, ASR y herramientas abiertas para lenguas indigenas en riesgo' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,9 +11,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <NavBar />
+          <ResponsiveNav />
           <Container sx={{ py:4 }}>{children}</Container>
-        </ThemeProvider>
+          </ThemeProvider>
       </body>
     </html>
   );

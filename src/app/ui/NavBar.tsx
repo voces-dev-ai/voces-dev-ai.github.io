@@ -18,10 +18,7 @@ export default function NavBar() {
       <AppBar position="static" color="transparent" elevation={0} sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Toolbar>
           <Box sx={{ display:'flex', alignItems:'center', gap:1, flexGrow:1 }}>
-            <img src="/logo.svg" width={28} height={28} alt="logo" />
-            <Typography variant="h6" component={Link} href="/" style={{ textDecoration:'none', color:'inherit' }}>
-              Proyecto
-            </Typography>
+            <img src="/logo_peque.svg" width={150} alt="logo" />
           </Box>
           <Box sx={{ display: { xs:'none', md:'flex' }, gap:1 }}>
             {links.map(l => (
