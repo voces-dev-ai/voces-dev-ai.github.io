@@ -1,26 +1,72 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Reinicialización básica (MUI ya hace mucho de esto, pero no está de más) */
+* {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  line-height: 1; /* MUI suele tener su propio line-height, esto puede sobreescribirlo */
+  color: #111;
+  background: #fff;
+  /* La clase is-preload que venía del HTML5 UP. La gestionará React en App.js */
+  /* body.is-preload #page-wrapper { opacity: 0; transform: translateY(1em); } */
+  /* body.is-preload #banner { opacity: 0; transform: translateY(1em); } */
+  /* etc. */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Muy importante para que las imágenes se adapten y no desborden */
+img, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Animación de fondo del banner */
+@keyframes moveBackground {
+  from { background-position-x: 10000%; }
+  to   { background-position-x: -10141%; }
+}
+
+
+
+/* Estilos de los elementos dentro del Banner */
+#banner .logo  { transition: opacity 2s ease, transform 1s ease; transform: translateY(0); opacity: 1; margin: 0 auto; } /* margin auto para centrar si es bloque */
+
+
+/* BORRAR COMPLETAMENTE ESTOS ESTILOS DEL CSS GLOBAL */
+/* #one > div { ... } */
+/* #one > div > div.image.MuiBox-root.css-qs5o7y { ... } */
+/* #one > div > div.content.MuiBox-root.css-1yh0cuh { ... } */
+/* ESTOS ESTILOS DEBEN IR DENTRO DEL COMPONENTE SPOTLIGHT USANDO EL PROP `sx` */
+
+h4 {
+ font-family: 'Raleway', 'Helvetica', 'sans-serif' !important;
+}
+
+
+h2 {
+    -webkit-text-size-adjust: none;
+    box-sizing: inherit;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    color: #ffffff;
+    font-family: 'Raleway', 'Helvetica', 'sans-serif';
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin: 0 0 1em 0;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    padding-bottom: 1em;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.125);
 }

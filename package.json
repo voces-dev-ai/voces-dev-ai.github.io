@@ -6,13 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve out",
-    "lint": "eslint"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^5.15.10",
-    "@mui/material": "^5.15.10",
+    "@emailjs/browser": "^4.4.1",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@mui/icons-material": "6.5.0",
+    "@mui/material": "6.5.0",
+    "@mui/material-nextjs": "^7.3.3",
+    "@mui/styled-engine": "6.5.0",
+    "@mui/system": "6.5.0",
     "next": "15.5.6",
     "react": "19.1.0",
     "react-dom": "19.1.0"
