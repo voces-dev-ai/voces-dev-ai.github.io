@@ -28,7 +28,7 @@ export default function Spotlight() {
         content: '""',
         position: 'absolute',
         inset: 0,
-        top: { xs: -50, md: -99 },
+        top: { xs: -49, md: -99 },
         height: { xs: 50, md: 100 },
         backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%234c5c96%3B' /%3E%3C/svg%3E")`,
         backgroundRepeat: 'no-repeat',
