@@ -4,7 +4,7 @@ import Spotlight from '../components/Spotlight';
 import Spotlight_2 from '../components/Spotlight_2';
 import Spotlight_3 from '../components/Spotlight_3';
 import Footer from '../components/Footer';
-import Test from '../components/Test';
+import Herramientas from '../components/Herramientas';
 
 
 export default function Page() {
@@ -15,7 +15,7 @@ export default function Page() {
       <Spotlight />
       <Spotlight_2 />
       <Spotlight_3 />
-      <Test />
+      <Herramientas />
       <Footer />
     </>
   );

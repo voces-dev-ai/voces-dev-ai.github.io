@@ -3,8 +3,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",           // static export
-  images: { unoptimized: true }, // desactiva Image Optimization (no server)
-  trailingSlash: true,        // mejora compatibilidad en Pages
+  images: { unoptimized: true }, 
+  trailingSlash: true,
 };
 
 export default nextConfig;

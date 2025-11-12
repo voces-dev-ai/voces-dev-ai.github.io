@@ -46,10 +46,9 @@ export default function Header() {
             textTransform: 'uppercase',
             fontWeight: 700,
             fontFamily: 'raleway.style.fontFamily',
-            // hereda color del body; si necesitas blanco sobre hero, fuerza color:
             color: solid ? '#fff' : '#fff',
-            opacity: solid ? 1 : 0,              // ← visible solo al hacer scroll
-            transform: solid ? 'translateY(0)' : 'translateY(-100px)', // movimiento suave
+            opacity: solid ? 1 : 0,
+            transform: solid ? 'translateY(0)' : 'translateY(-100px)',
             transition: 'opacity 0.3s ease, transform 0.3s ease',
           }}
         >

@@ -7,7 +7,7 @@ import { Raleway } from 'next/font/google';
 
 const raleway = Raleway({ subsets: ['latin'] });
 
-// Animación que mueve el fondo de izquierda a derecha
+// animation that move the backgroundd 
 const moveBackground = keyframes`
   from {
     background-position: 0px center;
@@ -35,12 +35,12 @@ export default function Hero() {
           content: '""',
           position: 'absolute',
           inset: 0,
-          backgroundColor: 'rgba(0,0,0,0.1)', // ⬅️ Oscurece toda la imagen
+          backgroundColor: 'rgba(0,0,0,0.1)', // ⬅️ shadoww the image
           zIndex: 0,
         },
         '& > *': {
           position: 'relative',
-          zIndex: 0, // ⬅️ Asegura que el contenido esté sobre ambos overlays
+          zIndex: 0,
         },
         marginLeft: 0,
         animation: `${moveBackground} 15s linear infinite`,

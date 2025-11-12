@@ -68,7 +68,7 @@ export default function ContactSection() {
       }}
     >
       <Box sx={{ maxWidth: '60em', mx: 'auto' }}>
-        {/* Título */}
+        {/* Tittle */}
         <Typography
           variant="h6"
           sx={{
@@ -98,42 +98,31 @@ export default function ContactSection() {
           Escríbenos. Estamos siempre abiertos al diálogo y a nuevas alianzas para ampliar el impacto de Voces.
         </Typography>
 
-        {/* Contenedor "inner" con ancho fijo/responsivo y centrado */}
+      {/* containner "inner" with widht fixed and responsive*/}
         <Box
-          className="inner" // Mantener className para posible referencia o debug
+          className="inner"
           sx={{
             position: 'relative',
-            zIndex: 1, // Por encima de las diagonales
-            //width: '70em', // Ancho fijo deseado (880px si 1em = 16px)
-            maxWidth: '60em', // Se adapta a pantallas más pequeñas
-            mx: 'auto', // Centra horizontalmente
-            // Añade padding horizontal en pantallas pequeñas para que el contenido no se pegue a los bordes
-            px: { xs: 3, sm: 4, md: 0 }, // sx=2 (16px), sm=3 (24px)
-            py: { xs: 3, md: 0 }, // Añade padding vertical al inner si es necesario para separar de las diagonales en móviles
+            zIndex: 1,
+            maxWidth: '60em',
+            mx: 'auto', 
+            px: { xs: 3, sm: 4, md: 0 }, 
+            py: { xs: 3, md: 0 },
             display: 'grid',
-            // Orden de las columnas: en md, imagen a la derecha; en xs, apiladas (texto arriba, imagen abajo)
             gridTemplateColumns: { xs: '1fr', md: '50% 1fr' },
-            alignItems: 'start', // Alinea verticalmente los items en el centro
-            //columnGap: { xs: 4, md: 6 }, // Espacio entre columnas
-            rowGap: 6, // Espacio entre filas (cuando se apilan en xs)
-            // `padding: 3em 0 1em 0;` del CSS global
-            // Ya cubierto por py de la Box principal y px/py de esta inner Box
-            // `text-align: right;` del CSS global. Esto se debe aplicar a las columnas individuales
+            alignItems: 'start', 
+            rowGap: 6, 
           }}
         >
-          {/* Columna de la Form (se moverá a la derecha en md, arriba en xs por el orden) */}
-          {/* Usamos un Box para envolver la imagen y darle los estilos de círculo y tamaño */}
+          {/* Form's column */}
           <Box
             sx={{
-              justifySelf: { xs: 'center', md: 'center' }, // Centra en xs, alinea a la derecha en md
-              order: { xs: 1, md: 1 }, // Cambia el orden: imagen 2da en xs, 1ra en md
-              //borderRadius: '50%',
+              justifySelf: { xs: 'center', md: 'center' }, 
+              order: { xs: 1, md: 1 }, 
               overflow: 'hidden',
-              // `margin: 0 0 2em 3em;` del CSS global. Se convierte en un `mr` para dejar espacio al texto
               display: 'inline-block',
               position: 'relative',
               margin: '0 4em 2em 0', 
-              // El `padding: 0;` y `border: 0;` ya son manejados por MUI Box por defecto
             }}
           >
             <Box component="form" noValidate autoComplete="off">
@@ -173,16 +162,16 @@ export default function ContactSection() {
             </Box>
           </Box>
   
-          {/* Columna del Texto */}
+          {/* Text's Column */}
           <Box
             sx={{
               width: '100%',
               color: '#fff',
-              textAlign: { xs: 'center', md: 'right' }, // Centra en xs, derecha en md
-              order: { xs: 2, md: 2 }, // Cambia el orden: texto 1ro en xs, 2do en md
-              ml: { xs: 'auto', md: '1' }, // Centra el bloque de título/línea en móviles, quita el centrado en desktop
-              mr: { xs: 'auto', md: '3' }, // Centra el bloque de título/línea en móviles, quita el centrado en desktop
-              mb: 3, // AJUSTE FINAL: Margen inferior para separar del párrafo
+              textAlign: { xs: 'center', md: 'right' },
+              order: { xs: 2, md: 2 }, 
+              ml: { xs: 'auto', md: '1' }, 
+              mr: { xs: 'auto', md: '3' }, 
+              mb: 3, 
             }}
           >
             <Stack spacing={2.5}>
@@ -211,8 +200,6 @@ export default function ContactSection() {
                   </Typography>
                 </Box>
               </Stack>
-
-              {/* puedes añadir más bloques con otros íconos si deseas */}
             </Stack>
 
           </Box>
