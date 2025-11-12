@@ -126,7 +126,7 @@ export default function Spotlight() {
               lineHeight: '34.32px', // CAMBIO: Un poco más compacto si es necesario
             }}
           >
-            TECNOLOGÍA CO-CREADA CON COMUNIDADES
+            TECNOLOGÍA CO-CREADA CON COMUNIDADES prueba
           </Typography>
 
           {/* Línea tenue bajo el título */}
