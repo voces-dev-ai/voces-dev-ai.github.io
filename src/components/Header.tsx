@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Box, Container, Typography, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { Box, Container, Typography, IconButton, Drawer, List, ListItem, ListItemText, ListItemButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useEffect, useState } from 'react';
 import { Raleway } from 'next/font/google';
@@ -139,7 +139,7 @@ export default function Header() {
       >
         <List>
           {navItems.map((item) => (
-            <ListItem button key={item.label} onClick={() => handleNavClick(item.href)}>
+            <ListItemButton key={item.label} onClick={() => handleNavClick(item.href)}>
               <ListItemText
                 primary={item.label}
                 primaryTypographyProps={{
@@ -152,7 +152,7 @@ export default function Header() {
                   },
                 }}
               />
-            </ListItem>
+            </ListItemButton>
           ))}
         </List>
       </Drawer>
