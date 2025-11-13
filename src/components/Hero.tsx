@@ -35,7 +35,7 @@ export default function Hero() {
           content: '""',
           position: 'absolute',
           inset: 0,
-          backgroundColor: 'rgba(0,0,0,0.1)', // ⬅️ shadoww the image
+          backgroundColor: 'rgba(0,0,0,0.1)', 
           zIndex: 0,
         },
         '& > *': {
@@ -51,8 +51,25 @@ export default function Hero() {
       }}
     >
       <Container maxWidth="lg">
-        <Box className="inner" sx={{paddingLeft: '100px'}}>
-          <Box className="logo" sx={{ display: 'flex', justifyContent: 'left', pb: 1 }}>
+        <Box
+          className="inner"
+          sx={{
+            paddingLeft: { xs: 0, md: '100px' },
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: { xs: 'center', md: 'flex-start' },
+            textAlign: { xs: 'center', md: 'left' },
+          }}
+        >
+          <Box
+            className="logo"
+            sx={{
+              display: 'flex',
+              justifyContent: { xs: 'center', md: 'left' },
+              pb: 1,
+              width: '100%',
+            }}
+          >
             <Image
               src="/images/logo.png"
               alt="VOCES"
@@ -61,12 +78,27 @@ export default function Hero() {
               style={{
                 height: 'auto',
                 filter: 'invert(1) brightness(2)',
+                maxWidth: '100%',
               }}
               priority
             />
           </Box>
-          <Typography   className={raleway.className} component="p" sx={{ fontSize: '1em', fontWeight: 200, letterSpacing: '0.12em', lineHeight: 2, textTransform: 'uppercase', marginTop: '0.5em'}}>
-            TECNOLOGÍA EN TU PROPIA LENGUA</Typography>
+          <Typography
+            className={raleway.className}
+            component="p"
+            sx={{
+              fontSize: { xs: '1.1em', md: '1em' },
+              fontWeight: 700,
+              letterSpacing: '0.12em',
+              lineHeight: 2,
+              textTransform: 'uppercase',
+              marginTop: '0.5em',
+              width: { xs: '100%', md: 'auto' },
+              textAlign: { xs: 'center', md: 'left' },
+            }}
+          >
+            TECNOLOGÍA EN TU PROPIA LENGUA
+          </Typography>
         </Box>
       </Container>
     </Box>
