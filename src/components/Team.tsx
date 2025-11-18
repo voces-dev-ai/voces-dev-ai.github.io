@@ -92,8 +92,8 @@ const estudiosAplicados = [
   {
     name: 'Constanza Cruz',
     degree: 'Antropóloga',
-    position: 'Investigadora UC',
-    role: '',
+    position: '',
+    role: 'Investigadora UC',
     links: [''],
     image: '/team/ConstanzaCruz.jpg',
     linkedin: 'https://www.linkedin.com/in/constanza-victoria-cruz-gonz%C3%A1lez-8a018621b/',
@@ -102,8 +102,8 @@ const estudiosAplicados = [
   {
     name: 'Belén Villena',
     degree: 'PhD en Linguistica',
-    position: "Investigadora UC",
-    role: '',
+    position: "",
+    role: 'Investigadora UC',
     links: [''],
     image: '/team/BelenVillena.jpg',
     linkedin: '#',
