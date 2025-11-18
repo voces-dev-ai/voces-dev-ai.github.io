@@ -4,18 +4,23 @@ import Image from 'next/image';
 import { Box, Container, Typography, IconButton, Drawer, List, ListItem, ListItemText, ListItemButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useEffect, useState } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import { Raleway } from 'next/font/google';
 
 const raleway = Raleway({ subsets: ['latin'] });
 
 const navItems = [
-  { label: 'Herramientas', href: '#tools' },
-  { label: 'Contacto', href: '#contacto' }, // Added Contacto button
+  { label: 'Inicio', href: '/', type: 'route' },
+  { label: 'Equipo', href: '/equipo', type: 'route' },
+  { label: 'Herramientas', href: '#tools', type: 'scroll' },
+  { label: 'Contacto', href: '#contacto', type: 'scroll' },
 ];
 
 export default function Header() {
   const [solid, setSolid] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 10);
@@ -24,9 +29,24 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Smooth scroll handler with offset
-  const handleNavClick = (href: string) => {
+  // Handle navigation - either route or scroll
+  const handleNavClick = (href: string, type: string) => {
     setDrawerOpen(false);
+    
+    if (type === 'route') {
+      router.push(href);
+    } else {
+      // If not on home page, navigate to home first
+      if (pathname !== '/') {
+        router.push('/');
+        setTimeout(() => scrollToSection(href), 100);
+      } else {
+        scrollToSection(href);
+      }
+    }
+  };
+
+  const scrollToSection = (href: string) => {
     const el = document.querySelector(href);
     if (el) {
       const yOffset = href === '#contacto' ? 150 : -80;
@@ -95,7 +115,7 @@ export default function Header() {
                 href={item.href}
                 onClick={e => {
                   e.preventDefault();
-                  handleNavClick(item.href);
+                  handleNavClick(item.href, item.type);
                 }}
                 sx={{
                   color: '#fff',
@@ -139,7 +159,7 @@ export default function Header() {
       >
         <List>
           {navItems.map((item) => (
-            <ListItemButton key={item.label} onClick={() => handleNavClick(item.href)}>
+            <ListItemButton key={item.label} onClick={() => handleNavClick(item.href, item.type)}>
               <ListItemText
                 primary={item.label}
                 primaryTypographyProps={{

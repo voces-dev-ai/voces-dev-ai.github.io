@@ -7,6 +7,7 @@ import {
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import { Raleway } from 'next/font/google';
 import { useForm, ValidationError } from '@formspree/react';
+import { usePathname } from 'next/navigation';
 
 const raleway = Raleway({ subsets: ['latin'] });
 
@@ -34,6 +35,10 @@ const inputSx = {
 
 export default function ContactSection() {
   const [state, handleSubmit] = useForm("mnnleyyq");
+  const pathname = usePathname();
+  
+  // Use dark blue color for team page, original color for index
+  const triangleColor = pathname === '/equipo' ? '%231a1d2e' : '%232e3141';
 
   return (
     <Box
@@ -53,7 +58,7 @@ export default function ContactSection() {
           inset: 0,
           top: { xs: 0, md: 0 },
           height: { xs: 50, md: 100 },
-          backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='100,0 0,100 0,0' style='fill:%232e3141%3B' /%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='100,0 0,100 0,0' style='fill:${triangleColor}%3B' /%3E%3C/svg%3E")`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: '100% 100%',
           zIndex: 3,

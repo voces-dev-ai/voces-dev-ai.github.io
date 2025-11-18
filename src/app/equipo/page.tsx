@@ -1,2 +1,13 @@
-import { Typography } from '@mui/material';
-export default function Page(){ return <Typography variant="h3">Equipo</Typography>; }
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Team from '../../components/Team';
+
+export default function Page() {
+  return (
+    <>
+      <Header />
+      <Team />
+      <Footer />
+    </>
+  );
+}
