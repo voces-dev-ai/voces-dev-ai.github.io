@@ -40,22 +40,24 @@ export default function Spotlight() {
           px: { xs: 3, sm: 4, md: 0 },
           py: { xs: 3, md: 4 }, 
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', sm: 'minmax(350px, 40%) 1fr', md: '30% 1fr' },
+          gridTemplateColumns: { xs: '1fr', md: '30% 1fr' },
           alignItems: 'center',
-          rowGap: 6, 
+          gap: { xs: 4, md: 6 }, 
         }}
       >
         {/* Image's column */}
         <Box
           sx={{
-            justifySelf: { xs: 'center', md: 'end' },
-            order: { xs: 1, ms: 'minmax(350px, 1)', md: 1 },
+            justifySelf: { xs: 'center', md: 'center' },
+            order: { xs: 1, md: 1 },
             overflow: 'hidden',
-            display: 'inline-block',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             position: 'relative',
             borderRadius: '100%',
             width: '16em',
-            margin: '0 2em 2em 0', 
+            height: '16em',
           }}
         >
           <Image
@@ -73,12 +75,8 @@ export default function Spotlight() {
           sx={{
             width: '100%',
             color: '#fff',
-            textAlign: { xs: 'center', md: 'right' },
-            order: { xs: 2,ms:2, md: 2 }, 
-            maxWidth: { xs: '100%', md: '80em' }, 
-            ml: { xs: 'auto', md: '1' },
-            mr: { xs: 'auto', md: '3' },
-            mb: 3,
+            textAlign: { xs: 'center', md: 'left' },
+            order: { xs: 2, md: 2 }, 
           }}
         >
           <Typography
@@ -87,7 +85,7 @@ export default function Spotlight() {
               fontSize: { xs: '1.2em', md: '1.4em' },
               textTransform: 'uppercase',
               fontWeight: 700,
-              textAlign: 'left',
+              textAlign: { xs: 'center', md: 'left' },
               letterSpacing: '2.08px',
               lineHeight: '34.32px',
             }}
@@ -95,12 +93,17 @@ export default function Spotlight() {
             LENGUAS QUE VIVEN EN LA TECNOLOGÍA
           </Typography>
 
-          {/* line shadow under tittle */}
           <Box sx={{ my: 2, height: 2, bgcolor: 'rgba(255,255,255,0.125)' }} />
 
-          <Typography   className={raleway.className} sx={{textAlign: 'left', color: 'white', fontFamily: 'raleway.style.fontFamily', fontWeight:150, fontSize: '1em', lineHeight: 1.5,// Esto ya está bastante bien para la altura del box de texto
-            }}>
-              Creamos herramientas de traducción automática, transcripción, herramientas educativas y más, adaptadas a las realidades lingüísticas y culturales de los pueblos originarios. Estas tecnologías no solo preservan lenguas, sino que las proyectan hacia el futuro digital.
+          <Typography className={raleway.className} sx={{
+            textAlign: { xs: 'center', md: 'justify' }, 
+            color: 'white', 
+            fontFamily: 'raleway.style.fontFamily', 
+            fontWeight: 150, 
+            fontSize: '1em', 
+            lineHeight: 1.5,
+          }}>
+            Creamos herramientas de traducción automática, transcripción, herramientas educativas y más, adaptadas a las realidades lingüísticas y culturales de los pueblos originarios. Estas tecnologías no solo preservan lenguas, sino que las proyectan hacia el futuro digital.
           </Typography>
         </Box>
       </Box>

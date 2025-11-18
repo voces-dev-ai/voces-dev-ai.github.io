@@ -48,44 +48,18 @@ export default function Spotlight() {
           px: { xs: 3, sm: 4, md: 0 }, 
           py: { xs: 3, md: 0 }, 
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', sm: 'minmax(350px, 70%) 1fr', md: '70% 1fr' },
+          gridTemplateColumns: { xs: '1fr', md: '1fr 30%' },
           alignItems: 'center', 
-          rowGap: 6, 
+          gap: { xs: 4, md: 6 }, 
         }}
       >
-        {/* Image's columsn */}
-        <Box
-          sx={{
-            justifySelf: { xs: 'center', md: 'center' }, 
-            order: { xs: 2, ms: 2, md: 2 },
-            overflow: 'hidden',
-            display: 'inline-block',
-            position: 'relative',
-            borderRadius: '100%',
-            width: '16em',
-            margin: '0 0 2em 2em',  
-          }}
-        >
-          <Image
-            src="/images/pic01.png"
-            alt="Co-creación tecnológica"
-            width={704} 
-            height={704} 
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }} // for that the image fill the circle
-            priority 
-          />
-        </Box>
-
-        {/*Text's columns */}
+        {/* Text's columns */}
         <Box
           sx={{
             width: '100%',
             color: '#fff',
-            textAlign: { xs: 'center', ms: 'right', md: 'left' }, 
-            order: { xs:1, ms: 1, md: 1 },
-            ml: { xs: 'auto', md: '1' },
-            mr: { xs: 'auto', md: '3' }, 
-            mb: 3, 
+            textAlign: { xs: 'center', md: 'left' }, 
+            order: { xs: 2, md: 1 },
           }}
         >
           <Typography
@@ -93,7 +67,7 @@ export default function Spotlight() {
             className={raleway.className}
             sx={{
               fontFamily: 'raleway.style.fontFamily',
-              textAlign: { xs: 'right', ms: 'right', md: 'left' },
+              textAlign: { xs: 'center', md: 'left' },
               fontSize: { xs: '1.2em', md: '1.4em' }, 
               textTransform: 'uppercase',
               fontWeight: 700,
@@ -104,17 +78,47 @@ export default function Spotlight() {
             TECNOLOGÍA CO-CREADA CON COMUNIDADES
           </Typography>
 
-          {/* line shadow under tittle */}
           <Box sx={{ my: 2, height: 2, bgcolor: 'rgba(255,255,255,0.125)' }} />
 
-          <Typography   className={raleway.className} sx={{textAlign: { xs: 'right', ms: 'right', md: 'left' }, color: 'white', fontFamily: 'raleway.style.fontFamily', fontWeight:150, fontSize: '1em', lineHeight: 1.5,// Esto ya está bastante bien para la altura del box de texto
-            }}>
+          <Typography className={raleway.className} sx={{
+            textAlign: { xs: 'center', md: 'justify' }, 
+            color: 'white', 
+            fontFamily: 'raleway.style.fontFamily', 
+            fontWeight: 150, 
+            fontSize: '1em', 
+            lineHeight: 1.5,
+          }}>
             En Voces, desarrollamos herramientas digitales junto a comunidades
             indígenas de América Latina, el Caribe y las islas del Pacífico.
             Nos enfocamos en el desarrollo tecnológico como vía para fortalecer
             la lengua, la identidad y la autonomía cultural de los pueblos
             originarios.
           </Typography>
+        </Box>
+
+        {/* Image's column */}
+        <Box
+          sx={{
+            justifySelf: { xs: 'center', md: 'center' }, 
+            order: { xs: 1, md: 2 },
+            overflow: 'hidden',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+            borderRadius: '100%',
+            width: '16em',
+            height: '16em',
+          }}
+        >
+          <Image
+            src="/images/pic01.png"
+            alt="Co-creación tecnológica"
+            width={704} 
+            height={704} 
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            priority 
+          />
         </Box>
       </Box>
     </Box>

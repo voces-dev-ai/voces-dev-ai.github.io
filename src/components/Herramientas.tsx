@@ -76,41 +76,39 @@ export default function Spotlight() {
           width: '100%',
           maxWidth: '60em',
           mx: 'auto',
+          px: { xs: 3, sm: 4, md: 0 },
           zIndex: 1,
         }}
       >
         <Typography
           variant="h4"
-          align="center"
+          className={raleway.className}
           sx={{
-            fontWeight: 700,
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.15)',
-            pb: 4,
-            textAlign: 'left',
             fontSize: { xs: '1.2em', md: '1.4em' },
+            textTransform: 'uppercase',
+            fontWeight: 700,
+            textAlign: { xs: 'center', md: 'left' },
+            letterSpacing: '2.08px',
+            lineHeight: '34.32px',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.15)',
+            pb: 2,
+            mb: 2,
           }}
         >
           Herramientas para revitalizar lenguas
         </Typography>
 
         <Typography
-          align="center"
+          className={raleway.className}
           sx={{
-            fontWeight: 200,
-            fontSize: '1.25rem',
-            textAlign: 'left',
-            mt: 2,
-            mx: 'auto',
-            opacity: 0.9,
-            lineHeight: 1.75,
+            textAlign: { xs: 'center', md: 'left' },
+            color: 'white',
+            fontWeight: 150,
+            fontSize: '1em',
+            lineHeight: 1.5,
+            mb: 4,
           }}
         >
-          </Typography>
-
-        <Typography   className={raleway.className} sx={{color: 'white', fontFamily: 'raleway.style.fontFamily', fontWeight:150, fontSize: '1em', lineHeight: 1.5,// Esto ya está bastante bien para la altura del box de texto
-        }}>
           Nuestro trabajo se basa en el respeto profundo por las comunidades, con soluciones
           desarrolladas junto a hablantes, autoridades locales y autoridades ancestrales.
           Estas son algunas de nuestras líneas de acción:
@@ -121,12 +119,12 @@ export default function Spotlight() {
           sx={{
             mt: 6,
             display: 'grid',
-            gap: 6,
+            gap: 4,
             justifyContent: 'center',
             justifyItems: 'center',
             gridTemplateColumns: {
-            xs: '1fr',
-            sm: 'repeat(2, minmax(320px, 1fr))',
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
             },
             maxWidth: '60em',
             mx: 'auto',
@@ -140,17 +138,15 @@ export default function Spotlight() {
                 boxShadow: 'none',
                 overflow: 'hidden',
                 height: '100%',
-                maxWidth: {ms:200, md:500},
-                borderRadius: '3pt',
-                mx: 'auto',
+                width: '100%',
+                borderRadius: '3px',
               }}
-
             >
               <Image
                 src={tool.image}
                 alt={tool.title}
-                width={0}
-                height={0}
+                width={500}
+                height={256}
                 style={{
                   borderRadius: 0,
                   width: '100%',
@@ -159,22 +155,19 @@ export default function Spotlight() {
                   display: 'block',
                 }}
               />
-              <CardContent>
+              <CardContent sx={{ px: 3, py: 2 }}>
                 <Typography
                   className={raleway.className}
-                  maxWidth={500}
-                  variant="subtitle1"
-                  fontWeight={700}
-                  textTransform="uppercase"
-                  mb={1}
-                  color="#fff"
-                  letterSpacing="0.05em"
-                  fontSize="1em"
-                  marginX={3}
-                  borderBottom="1px solid rgba(255, 255, 255, 0.15)"
-                  marginY={2}
-                  pb={2}
-                  fontFamily= 'raleway.style.fontFamily'
+                  sx={{
+                    fontSize: '1em',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    color: '#fff',
+                    borderBottom: '1px solid rgba(255, 255, 255, 0.15)',
+                    pb: 2,
+                    mb: 2,
+                  }}
                 >
                   {tool.title}
                 </Typography>
@@ -182,12 +175,8 @@ export default function Spotlight() {
                   className={raleway.className}
                   sx={{
                     fontSize: '1em',
-                    fontFamily: 'raleway.style.fontFamily',
-                    lineHeight: 1.75,
-                    fontWeight: 200,
-                    mt: 2,
-                    mx: 2,
-                    pb: 3,
+                    lineHeight: 1.5,
+                    fontWeight: 150,
                     color: '#fff',
                   }}
                 >

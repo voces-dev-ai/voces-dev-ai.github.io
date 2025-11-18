@@ -2,10 +2,11 @@
 
 import {
   Box, Typography, Grid, Button,
-  FormControl, FormLabel, OutlinedInput, Stack, Avatar, Link
+  FormControl, FormLabel, OutlinedInput, Stack, Avatar, Link, Alert
 } from '@mui/material';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import { Raleway } from 'next/font/google';
+import { useForm, ValidationError } from '@formspree/react';
 
 const raleway = Raleway({ subsets: ['latin'] });
 
@@ -17,7 +18,6 @@ const labelSx = {
   fontSize: '0.8em',
   mb: 1,
 };
-
 
 const inputSx = {
   bgcolor: 'rgba(255, 255, 255, 0.025)',
@@ -33,6 +33,8 @@ const inputSx = {
 };
 
 export default function ContactSection() {
+  const [state, handleSubmit] = useForm("mnnleyyq");
+
   return (
     <Box
       id="contacto"
@@ -98,80 +100,136 @@ export default function ContactSection() {
           Escríbenos. Estamos siempre abiertos al diálogo y a nuevas alianzas para ampliar el impacto de Voces.
         </Typography>
 
-      {/* containner "inner" with widht fixed and responsive*/}
+        {/* containner "inner" with widht fixed and responsive*/}
         <Box
           className="inner"
           sx={{
             position: 'relative',
             zIndex: 1,
             maxWidth: '60em',
-            mx: 'auto', 
-            px: { xs: 3, sm: 4, md: 0 }, 
+            mx: 'auto',
+            px: { xs: 3, sm: 4, md: 0 },
             py: { xs: 3, md: 0 },
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', md: '50% 1fr' },
-            alignItems: 'start', 
-            rowGap: 6, 
+            alignItems: 'start',
+            rowGap: 6,
           }}
         >
           {/* Form's column */}
           <Box
             sx={{
-              justifySelf: { xs: 'center', md: 'center' }, 
-              order: { xs: 1, md: 1 }, 
+              justifySelf: { xs: 'center', md: 'center' },
+              order: { xs: 1, md: 1 },
               overflow: 'hidden',
               display: 'inline-block',
               position: 'relative',
-              margin: '0 4em 2em 0', 
+              margin: '0 4em 2em 0',
             }}
           >
-            <Box component="form" noValidate autoComplete="off">
-              <FormControl variant="outlined" fullWidth>
-                <FormLabel sx={labelSx}>Nombre</FormLabel>
-                <OutlinedInput sx={inputSx} />
-              </FormControl>
-
-              <FormControl variant="outlined" fullWidth>
-                <FormLabel sx={labelSx}>Correo electrónico</FormLabel>
-                <OutlinedInput type="email" sx={inputSx} />
-              </FormControl>
-
-              <FormControl variant="outlined" fullWidth>
-                <FormLabel sx={labelSx}>Mensaje</FormLabel>
-                <OutlinedInput multiline minRows={4} sx={inputSx} />
-              </FormControl>
-
-              <Button
-                variant="outlined"
+            {state.succeeded ? (
+              <Alert
+                severity="success"
                 sx={{
-                  bgcolor: 'rgba(255, 255, 255, 0.025)',
-                  border: 'solid 2px rgba(115, 119, 125, 0.6) !important',
-                  bordewidth: '1px',
+                  bgcolor: 'rgba(76, 175, 80, 0.2)',
                   color: '#fff',
-                  borderRadius: '4px',
-                  mt: 1,
-                  letterSpacing: '0.1em',
-                  lineHeight: 3,
-                  px: 4,
-                  textTransform: 'uppercase',
-                  '&:hover': { borderColor: '#fff', background: 'rgba(255,255,255,0.08)' },
+                  border: '1px solid rgba(76, 175, 80, 0.5)',
+                  '& .MuiAlert-icon': { color: '#4caf50' }
                 }}
               >
-                Enviar mensaje
-              </Button>
-            </Box>
+                ¡Gracias por contactarnos! Te responderemos pronto.
+              </Alert>
+            ) : (
+              <Box component="form" onSubmit={handleSubmit} noValidate autoComplete="off">
+                <FormControl variant="outlined" fullWidth>
+                  <FormLabel htmlFor="name" sx={labelSx}>Nombre</FormLabel>
+                  <OutlinedInput
+                    id="name"
+                    name="name"
+                    sx={inputSx}
+                    required
+                  />
+                  <ValidationError
+                    prefix="Nombre"
+                    field="name"
+                    errors={state.errors}
+                    style={{ color: '#ff6b6b', fontSize: '0.85rem', marginTop: '-12px', marginBottom: '8px' }}
+                  />
+                </FormControl>
+
+                <FormControl variant="outlined" fullWidth>
+                  <FormLabel htmlFor="email" sx={labelSx}>Correo electrónico</FormLabel>
+                  <OutlinedInput
+                    id="email"
+                    type="email"
+                    name="email"
+                    sx={inputSx}
+                    required
+                  />
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                    style={{ color: '#ff6b6b', fontSize: '0.85rem', marginTop: '-12px', marginBottom: '8px' }}
+                  />
+                </FormControl>
+
+                <FormControl variant="outlined" fullWidth>
+                  <FormLabel htmlFor="message" sx={labelSx}>Mensaje</FormLabel>
+                  <OutlinedInput
+                    id="message"
+                    name="message"
+                    multiline
+                    minRows={4}
+                    sx={inputSx}
+                    required
+                  />
+                  <ValidationError
+                    prefix="Mensaje"
+                    field="message"
+                    errors={state.errors}
+                    style={{ color: '#ff6b6b', fontSize: '0.85rem', marginTop: '-12px', marginBottom: '8px' }}
+                  />
+                </FormControl>
+
+                <Button
+                  type="submit"
+                  disabled={state.submitting}
+                  variant="outlined"
+                  sx={{
+                    bgcolor: 'rgba(255, 255, 255, 0.025)',
+                    border: 'solid 2px rgba(115, 119, 125, 0.6) !important',
+                    bordewidth: '1px',
+                    color: '#fff',
+                    borderRadius: '4px',
+                    mt: 1,
+                    letterSpacing: '0.1em',
+                    lineHeight: 3,
+                    px: 4,
+                    textTransform: 'uppercase',
+                    '&:hover': { borderColor: '#fff', background: 'rgba(255,255,255,0.08)' },
+                    '&:disabled': {
+                      opacity: 0.6,
+                      cursor: 'not-allowed'
+                    },
+                  }}
+                >
+                  {state.submitting ? 'Enviando...' : 'Enviar mensaje'}
+                </Button>
+              </Box>
+            )}
           </Box>
-  
+
           {/* Text's Column */}
           <Box
             sx={{
               width: '100%',
               color: '#fff',
               textAlign: { xs: 'center', md: 'right' },
-              order: { xs: 2, md: 2 }, 
-              ml: { xs: 'auto', md: '1' }, 
-              mr: { xs: 'auto', md: '3' }, 
-              mb: 3, 
+              order: { xs: 2, md: 2 },
+              ml: { xs: 'auto', md: '1' },
+              mr: { xs: 'auto', md: '3' },
+              mb: 3,
             }}
           >
             <Stack spacing={2.5}>
@@ -185,7 +243,7 @@ export default function ContactSection() {
                 >
                   <HomeRoundedIcon />
                 </Avatar>
-                <Box className={raleway.className} sx={{height:'100%', fontFamily: 'raleway.style.fontFamily', textAlign:'left', fontSize: '0.8em', lineHeight: 1.5}}>
+                <Box className={raleway.className} sx={{ height: '100%', fontFamily: 'raleway.style.fontFamily', textAlign: 'left', fontSize: '0.8em', lineHeight: 1.5 }}>
                   <Typography sx={{ fontWeight: '200 !important' }}>
                     Proyecto Voces
                   </Typography>
@@ -201,10 +259,9 @@ export default function ContactSection() {
                 </Box>
               </Stack>
             </Stack>
-
           </Box>
-            
         </Box>
+
         <Box
           sx={{
             borderTop: '1px solid rgba(255,255,255,0.2)',
