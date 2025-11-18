@@ -131,7 +131,7 @@ export default function SpotlightRapanui() {
           }}
         >
           <Image
-            src="/images/pic03.png"
+            src="/images/moai.jpg"
             alt="Traductor Rapa Nui"
             width={704}
             height={704}

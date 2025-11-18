@@ -61,7 +61,7 @@ export default function SpotlightMapuzungun() {
           }}
         >
           <Image
-            src="/images/pic04.png"
+            src="/images/mapuche.jpg"
             alt="Traductor Mapuzungun"
             width={704}
             height={704}
