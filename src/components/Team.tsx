@@ -172,6 +172,17 @@ const antiguosMiembros = [
     image: '/team/AndresCarvallo.jpg',
     linkedin: 'https://www.linkedin.com/in/andres-carvallo-b5836a33a/',
     scholar: '#',
+  },
+
+  {
+    name: 'Guillaume Chapuis',
+    degree: '',
+    position: '',
+    role: '',
+    links: [''],
+    image: '',
+    linkedin: '#',
+    scholar: '#',
   }
 ];
 
